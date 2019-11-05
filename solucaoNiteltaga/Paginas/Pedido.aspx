@@ -4,14 +4,13 @@
      Home
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
-     <link href="../Content/bootstrap.min.css" rel="stylesheet"/>
     <link href="../Content/style.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Contentbody" Runat="Server">
 
     <!-- Conteúdo aqui!! -->
-    <div class="row col-md-12"  id="titulo">
+    <div class="row col-md-12"  id="titulos">
  <h1>CADASTRO DE PEDIDOS</h1>
    </div>
     <div class="row col-md-12"  id="base">
@@ -35,10 +34,3 @@
         </div>
     </div>
 </asp:Content>
-
-<asp:Content ID="Content4" ContentPlaceHolderID="Contentfooter" Runat="Server">
-    <div class="row col-md-12" id="footer">
-    <a>NIELTAGA-Corpright</a>   
-            </div>
-    </asp:Content>
-     

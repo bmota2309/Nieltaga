@@ -1,12 +1,14 @@
 ﻿body{
     background-color:bisque;
+
 }
-#titulo {
-    background-color: #f0e361;
+#titulos {
+    background-color: #ff6a00;
     border-bottom-left-radius:0px;
     border-bottom-right-radius:18px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #000000;
+    color: #ff6a00;
+
 }
 #lblMensagem, #formularioPedido, #bloco1, #bloco2 {
     background-color: #f7f1f1;

@@ -14,9 +14,4 @@
 
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Contentfooter" Runat="Server">
-    <div class="row col-md-12" id="footer">
-    
-            </div>
-</asp:Content>
 
