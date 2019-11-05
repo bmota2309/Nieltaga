@@ -1,0 +1,48 @@
+﻿    <%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Paginas_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+        <asp:ContentPlaceHolder id="title" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+        <link href="../Content/bootstrap.min.css" rel="stylesheet"/>
+        <link href="../Content/style.css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+</head>
+    <body>
+            <div class="container bg-light">
+                <div class="col-md-12 bg-dark">
+                    <div class="row">
+                        <a class="btn btn-outline-warning col-md-3" href="Home.aspx" role="button">Home</a>
+                        <a class="btn btn-outline-warning col-md-3" href="Pedido.aspx" role="button">Pedidos</a>
+                        <a class="btn btn-outline-warning col-md-3" href="#" role="button">Lucratividade</a>
+                        <a class="btn btn-outline-warning col-md-3" href="#" role="button">Receitas</a>
+                                                                   </div>                
+        <form id="form2" runat="server">
+        <asp:ContentPlaceHolder id="Contentbody" runat="server">
+           
+            
+            
+    </asp:ContentPlaceHolder>
+                
+            
+            
+                <asp:ContentPlaceHolder id="Contentfooter" runat="server">
+                     <!-- Rodapé-->
+            <div class="row col-md-12" id="footer">
+                 <a>NIELTAGA-Corpright</a>
+             </div>
+
+    </asp:ContentPlaceHolder>
+            </form>
+                    </div>
+    </div>
+
+</body>
+</html>

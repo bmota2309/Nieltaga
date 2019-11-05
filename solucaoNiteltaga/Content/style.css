@@ -1,0 +1,37 @@
+﻿body{
+    background-color:bisque;
+}
+#titulo {
+    background-color: #f0e361;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+#lblMensagem, #formularioPedido, #bloco1, #bloco2 {
+    background-color: #f7f1f1;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size:16px;
+    font-style:initial;
+    padding:8px;
+    border-color:black;
+}
+#footer 
+{
+    background-color: #f0e361;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+#lblMensagem {
+color:#808080;
+background-color:#00ff90;
+}
+div{
+    clear:right;
+    padding:8px;
+    border:3px;
+}
