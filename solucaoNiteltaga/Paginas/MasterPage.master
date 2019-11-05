@@ -16,33 +16,26 @@
     </asp:ContentPlaceHolder>
 </head>
     <body>
-            <div class="container bg-light">
-                <div class="col-md-12 bg-dark">
-                    <div class="row">
-                        <a class="btn btn-outline-warning col-md-3" href="Home.aspx" role="button">Home</a>
-                        <a class="btn btn-outline-warning col-md-3" href="Pedido.aspx" role="button">Pedidos</a>
-                        <a class="btn btn-outline-warning col-md-3" href="#" role="button">Lucratividade</a>
-                        <a class="btn btn-outline-warning col-md-3" href="#" role="button">Receitas</a>
-                                                                   </div>                
+            <div class="container">
+                    <div class="row col-12" id="bar">
+                        <a class="btn btn-warning card-header col-md-3"  href="Home.aspx" role="button">HOME</a>
+                        <a class="btn btn-warning card-header col-md-3"  href="Pedido.aspx" role="button">PEDIDOS</a>
+                        <a class="btn btn-warning card-header col-md-3"  href="#" role="button">LUCRATIVIDADE</a>
+                        <a class="btn btn-warning card-header col-md-3"  href="#" role="button">RECEITAS</a>
+                     </div> 
+                <asp:ContentPlaceHolder id="TituloPagina" runat="server">
+                </asp:ContentPlaceHolder>
         <form id="form2" runat="server">
         <asp:ContentPlaceHolder id="Contentbody" runat="server">
            
-            
-            
     </asp:ContentPlaceHolder>
-                
-            
-            
-                <asp:ContentPlaceHolder id="Contentfooter" runat="server">
+                </form>
                      <!-- Rodapé-->
-            <div class="row col-md-12" id="footer">
-                 <a>NIELTAGA-Corpright</a>
-             </div>
-
-    </asp:ContentPlaceHolder>
-            </form>
+                    <div class="col-md-12">
+                 <div class="row col-md-12 " id="footer">
+                    <a>NIELTAGA-Corpright</a>
+                 </div>
                     </div>
-    </div>
-
+            </div>
 </body>
 </html>
