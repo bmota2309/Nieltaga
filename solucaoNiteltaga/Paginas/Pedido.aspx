@@ -5,12 +5,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <link href="../Content/style.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Contentbody" Runat="Server">
 
     <!-- Conteúdo aqui!! -->
-    <div class="row col-md-12"  id="titulos">
+    <div class="row col-md-12"  id="titulo">
  <h1>CADASTRO DE PEDIDOS</h1>
    </div>
     <div class="row col-md-12"  id="base">
