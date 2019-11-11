@@ -3,7 +3,6 @@ using solucaoNiteltaga.Persistencia;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,18 +12,51 @@ public partial class Paginas_Pedido : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+            CarregarCardapio();
+
+        if (gdvCardapio.Rows.Count > 1)
+            gdvCardapio.HeaderRow.TableSection = TableRowSection.TableHeader;
 
     }
+    public void CarregarCardapio()
+    {
+        DataSet dsCardapio = PedidoBD.SelectAll();
+        int qtd = Funcoes.DSQuantidadesRegistros(dsCardapio);
 
+        if (qtd > 0)
+        {
+            gdvCardapio.DataSource = dsCardapio.Tables[0].DefaultView; //passa o dataset para o datasource do gridview
+            gdvCardapio.DataBind(); //carregar a tabela
+            gdvCardapio.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            ddlCardapio.DataSource = dsCardapio.Tables[0].DefaultView;
+            ddlCardapio.DataTextField = "car_nome";
+            ddlCardapio.DataBind();
+        }
+        else
+        {
+
+        }
+    }
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        Response.Write(ddlCardapio.SelectedItem.Text);
+    }
+
+    protected void ddlCardapio_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Response.Write(ddlCardapio.SelectedItem.Text);
+    }
     protected void txtDataPedido_TextChanged(object sender, EventArgs e)
     {
         DateTime data = DateTime.Now;
         Console.WriteLine(data.ToShortDateString());
     }
 
-
     protected void btnSalvar_Click(object sender, EventArgs e)
     {
+        Itempedido itempedido = new Itempedido();
         Pedido pedido = new Pedido();
         DateTime dataPedido = Convert.ToDateTime(txtDataPedido.Text);
         pedido.DataPedido = dataPedido;
@@ -32,7 +64,7 @@ public partial class Paginas_Pedido : System.Web.UI.Page
         pedido.DataEntrega = dataEntrega;
         pedido.Observacao = txtObservacao.Text;
         pedido.ValorTotal = Convert.ToDecimal(txtValorTotal.Text);
-        
+        itempedido.Objcardapio = txtobjcardapio.Text;
 
         PedidoBD bd = new PedidoBD();
         if (bd.Insert(pedido))
@@ -42,14 +74,29 @@ public partial class Paginas_Pedido : System.Web.UI.Page
             txtDataEntrega.Text = "";
             txtObservacao.Text = "";
             txtValorTotal.Text = "";
+            txtobjcardapio.Text = "";
         }
         else
         {
             lblMensagem.Text = "Erro ao realizar o pedido.";
         }
+
+
+
     }
 
-    protected void ddlCardapio_SelectedIndexChanged(object sender, EventArgs e)
+    protected void ddlPedido_SelectedIndexChanged(object sender, EventArgs e)
     {
+    }
+
+    protected void btnSair_Click(object sender, EventArgs e)
+    {
+        {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
+            Response.Redirect("Login.aspx");
+        }
+
     }
 }

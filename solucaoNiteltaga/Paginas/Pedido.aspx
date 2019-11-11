@@ -9,42 +9,66 @@
   
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TituloPagina" Runat="Server">
-    <div class="row col-md-12">
-            <div class="col-md-12"  id="titulo">
-        <a id="barra"> CADASTRO DE PEDIDOS</a>
-            </div>
-        </div>
+    
+            
     </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contentbody" Runat="Server">
-
-    <!-- Conteúdo aqui!! -->
+    
+    <!-- Conteúdo aqui!! --><br />
+    <div class="btn col-1">
+    <asp:Button ID="Button1" CssClass="btn btn-dark" runat="server" Text="SAIR" OnClick="btnSair_Click" Height="30px" />
+    
+        </div><br /><div class="navbar-light bg-light">
+    <a id="barra"> CADASTRO DE PEDIDOS</a>
+        </div>
     <div class="row form-group"  id="base">
-        <div class="col-md-4" id="bloco1">
-            <div class="row bg-info" >
-                <h3>&nbsp;&nbsp;&nbsp;PEDIDOS ENTREGUES</h3>
-            </div>
-        </div>
-        <div class="col-md-4" id="centro">
-            <div class="row  bg-info">
-            <h3>&nbsp;&nbsp;&nbsp;PEDIDOS REALIZADOS</h3>
-        </div>
-            <!--Lista de peidos aquí -->
-            <a>Pedido 1</a>
-        </div>
-        <div class="col-md-4" id="bloco2">
-            <div class="row bg-info">
-                <h3>&nbsp;&nbsp;&nbsp&nbsp;&nbsp;FAZER PEDIDO</h3>
-            </div>
-            <br /><asp:Label ID="dataPedido" cssClass="navbar bg-dark" runat="server" Text="dataPedido">Data pedido:</asp:Label>
+        <div class="card text-center col-12">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item col-sm-4">
+        <a class="nav-link active" href="#">FAZER PEDIDO</a>
+
+      </li>
+      <li class="nav-item col-sm-4">
+        <a class="nav-link" href="PedidosRealizados.aspx"   >PEDIDOS REALIZADOS</a>
+      </li>
+      <li class="nav-item col-sm-4">
+        <a class="nav-link  " href="PedidosEntregues.aspx">PEDIDOS ENTREGUES</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+   
+      <asp:Label ID="txtobjcardapio" runat="server" Text=""></asp:Label>
+            <br /><asp:Label ID="dataPedido" cssClass="navbar bg-light font-weight-bold " runat="server" Text="dataPedido">DATA PEDIDO:</asp:Label>
             <asp:TextBox ID="txtDataPedido"  cssClass="form-control"  runat="server" OnTextChanged="txtDataPedido_TextChanged" TextMode="Date"></asp:TextBox>
-            <asp:Label ID="dataEntrega" CssClass="navbar bg-dark" runat="server" Text="dataEntrega">Data Entrega:</asp:Label>
+            <asp:Label ID="dataEntrega" CssClass="navbar bg-light font-weight-bold" runat="server" Text="dataEntrega">DATA ENTREGA:</asp:Label>
             <asp:TextBox ID="txtDataEntrega" CssClass="form-control" runat="server" CausesValidation="True" TextMode="Date"></asp:TextBox>
-            <asp:Label ID="observacao" CssClass="navbar bg-dark" runat="server" Text="observacao">Observação:</asp:Label>
+            <asp:Label ID="observacao" CssClass="navbar bg-light font-weight-bold" runat="server" Text="observacao">OBSERVAÇÃO:</asp:Label>
             <asp:TextBox ID="txtObservacao" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
-            <asp:Label ID="valorTotal" CssClass="navbar bg-dark" runat="server" Text="valorTotal">Valor Total:</asp:Label>
+            <asp:Label ID="valorTotal" CssClass="navbar bg-light font-weight-bold" runat="server" Text="valorTotal">VALOR TOTAL:</asp:Label>
             <asp:TextBox ID="txtValorTotal" CssClass="form-control" runat="server" TextMode="Number" Rows="1"></asp:TextBox>
-            <asp:Button ID="btnSalvar" CssClass="btn btn-dark" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+            <asp:Button ID="btnSalvar" CssClass="btn btn-primary" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
            <asp:Label ID="lblMensagem" cssClass="alert" runat="server" Text=""></asp:Label>
+    
+  </div>
+</div> 
+        </div>  
+        
+<!--
+            <asp:DropDownList ID="ddlCardapio" runat="server" OnSelectedIndexChanged="ddlCardapio_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+
+            <asp:Button ID="btnOK" runat="server" CssClass="btn btn-primary" Text="Inserir" OnClick="btnOK_Click" />
+
+            <asp:GridView ID="gdvCardapio" CssClass="table table-hover table-success tabela" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField HeaderText="CESTA" DataField="car_nome" />
+                </Columns>
+            </asp:GridView>
+                -->
+        </div>
+            
+            
      </div>
    </div>
 </asp:Content>

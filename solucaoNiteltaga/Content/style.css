@@ -1,10 +1,23 @@
-﻿#bar{
+﻿body1{
+    background-image:url(../Paginas/imgs/cupcake_chocolate_shadow_121538_3840x2400.jpg);
+    background-position:3%;
+}
+#bar{
     padding-bottom:1px; 
     padding-top:1px;
     height:115px;
         }
+#container {
+    background-color:#c3c3c3;
+    border-radius:20px;
+    margin-left:35%;
+    margin-right:35%;
+    margin-top:10%;
 
-#barra {
+
+ 
+}
+#barra, #top {
     font-size: xx-large;
     font-family: Arial, Helvetica, sans-serif, monospace;
     color: #000000;
@@ -14,6 +27,7 @@
 }
 
 #titulo {
+    
     font-weight: bold;
     padding-left: 17px;
     padding-bottom: 2px;
@@ -49,7 +63,7 @@
     border-radius: 0px 4px 4px 0px;
 }
 
-#lblMensagem{
+#lblMensagem1{
     background-color: #f7f1f1;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;

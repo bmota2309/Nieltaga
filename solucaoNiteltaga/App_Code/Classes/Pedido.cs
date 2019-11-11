@@ -1,5 +1,15 @@
 ﻿using System;
 using System.Web;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using solucaoNiteltaga.Persistencia;
+using solucaoNiteltaga.Classes;
+
+
+
 namespace solucaoNiteltaga.Classes
 {
 
@@ -8,10 +18,12 @@ namespace solucaoNiteltaga.Classes
     /// </summary>
     public class Itempedido
     {
+        
         //propriedades
         //tbl_itemPedido
-        public Char Descricao { get; set; }
+        public string Nome { get; set; }
         public int Quantidade { get; set; }
+        public String Objcardapio { get; set;}
 
         //construtor
         public Itempedido()
@@ -41,23 +53,4 @@ namespace solucaoNiteltaga.Classes
             //
         }
     }
-/*
-public class Cardapio
-    { 
-    //propriedades
-    //tbl_cardapio
-public int Codigo { get; set; }
-    public DateTime Nome { get; set; }
-    public DateTime ValorUnitario { get; set; }
-    public Decimal EmbalagemId { get; set; }
-    public Char ReceitaId { get; set; }
-
-    //construtor
-    public Cardapio()
-    {
-        //
-        // TODO: Add constructor logic here
-        //
-    } 
-}*/
 }
