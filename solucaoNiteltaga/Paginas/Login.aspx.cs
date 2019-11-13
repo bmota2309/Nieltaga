@@ -68,7 +68,8 @@ public partial class Pages_Login : System.Web.UI.Page
                 break;
             default:
                 break;
-        }
+        }
+
         string nome = txtNome.Text.Trim();
         string cpf = txtCpf.Text.Trim();
 

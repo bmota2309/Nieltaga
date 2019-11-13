@@ -12,7 +12,22 @@
         <script src="../Scripts/jquery-3.4.1.min.js"></script>
 </head>
 <body>
+    
     <form id="form1" runat="server">
+        <!-- Login-->
+        <div class="container" >
+            <div class="row">
+                <div class="col-3 bg-info">
+                    linha 1
+                </div>
+                <div class="col-3 bg-info">
+                linha 2    
+                </div>
+
+            </div>
+        </div>
+
+
         <div class="container" id="container">
             <div class="row" id="titulo">
                 <div class="row col-md-12 "><asp:Label ID="lblTitulo" runat="server" Text=""> <h1>Bomboniere Nieltaga</h1></asp:Label></div> 

@@ -11,8 +11,8 @@ namespace solucaoNiteltaga.Persistencia
     /// </summary>
     public class PedidoBD
     {
-       
-        //Insert
+
+        /*Insert ITEM PEDIDO
         public bool Insert(Itempedido itemPedido)
         {
             System.Data.IDbConnection objConexao;
@@ -40,7 +40,7 @@ namespace solucaoNiteltaga.Persistencia
                 IDataReader objLeitura;
 
                 objConnection = Mapped.Connection();
-                string sql = "SELECT * FROM tbl_cardapio WHERE car_id = ?id";
+                string sql = "SELECT p.ped_id as PEDIDO, p.ped_dataPedido as DATA, p.ped_dataEntrega as ENTREGA FROM tbl_cardapio p WHERE ped_id = ?id";
 
                 objCommand = Mapped.Command(sql, objConnection);
                 objCommand.Parameters.Add(Mapped.Parameter("?id", itCardapio));
@@ -68,7 +68,28 @@ namespace solucaoNiteltaga.Persistencia
             }
         }
 
-        
+        */
+        //update
+        public bool Update(Pedido pedido)
+        {
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            string sql = "UPDATE tbl_pedido SET ped_dataPedido=?dataPedido, ped_dataEntrega=?dataEntrega ped_valorTotal=?valorTotal, ped_observacao=?observacao WHERE ped_id=?codigo";
+        objConexao = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?dataPedido", pedido.DataPedido));
+            objCommand.Parameters.Add(Mapped.Parameter("?dataEntrega", pedido.DataEntrega));
+            objCommand.Parameters.Add(Mapped.Parameter("?valorTotal", pedido.ValorTotal));
+            objCommand.Parameters.Add(Mapped.Parameter("?observacao", pedido.Observacao));
+            objCommand.ExecuteNonQuery();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return true;
+        }
+
+
+        //Insert
         public bool Insert(Pedido pedido)
         {
             System.Data.IDbConnection objConexao;
@@ -89,58 +110,65 @@ namespace solucaoNiteltaga.Persistencia
             return true;
         }
         //Select
-        public Itempedido Select(int id)
+        public Pedido Select(int id)
         {
-            Itempedido obj = null;
-            System.Data.IDbConnection objConnection;
+            Pedido obj = null;
+            System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             System.Data.IDataReader objDataReader;
-            objConnection = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM tbl_funcionario WHERE tbl_cardapio = ?codigo", objConnection);
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT ped_id, ped_dataPedido , ped_dataEntrega, ped_observacao FROM tbl_pedido p WHERE ped_id = ?codigo", objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?codigo", id));
             objDataReader = objCommand.ExecuteReader();
             while (objDataReader.Read())
             {
-                obj = new Itempedido();
-                //obj.Nome = Convert.ToInt32(objDataReader["car_nome"]);
-                obj.Nome = Convert.ToString(objDataReader["car_nome"]);
+                obj = new Pedido();
+                obj.Codigo = Convert.ToInt32(objDataReader["ped_id"]);
+                DateTime dataPedido = Convert.ToDateTime(objDataReader["ped_dataPedido"]);
+                DateTime dataEntrega = Convert.ToDateTime(objDataReader["ped_dataEntrega"]);
+
+                obj.Observacao = Convert.ToString(objDataReader["ped_observacao"]);
+                
             }
             objDataReader.Close();
-            objConnection.Close();
+            objConexao.Close();
             objCommand.Dispose();
-            objConnection.Dispose();
+            objConexao.Dispose();
             objDataReader.Dispose();
             return obj;
-        }
+        }
+
         //Select All
-        public static DataSet SelectAll()
+        public DataSet SelectAll()
         {
-            try
-            {
-                IDbConnection objConnection;
-                IDbCommand objComando;
-                IDataAdapter objAdapter;
-                DataSet ds = new DataSet();
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT ped_id AS 'PEDIDO', ped_dataPedido AS 'DT.PEDIDO', ped_dataEntrega AS 'DT.ENTREGA', ped_observacao AS 'OBSERVAÇÃO', ped_valorTotal AS 'R$' FROM tbl_pedido AS p", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+        //delete
+        public bool Delete(int id)
+        {
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            string sql = "DELETE FROM tbl_pedido WHERE ped_id=?codigo";
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", id));
 
-                objConnection = Mapped.Connection();
-                string sql = "SELECT * FROM tbl_cardapio";
-
-                objComando = Mapped.Command(sql, objConnection);
-
-                objAdapter = Mapped.Adapter(objComando);
-                objAdapter.Fill(ds);
-
-                objConnection.Close();
-                objComando.Dispose();
-                objConnection.Dispose();
-
-                return ds;
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            objCommand.ExecuteNonQuery();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return true;
         }
     }
 }

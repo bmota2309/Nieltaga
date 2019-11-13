@@ -36,6 +36,8 @@
         <br />
         <!-- CARD -->
         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            
+            <!--
   <div class="card-header">PEDIDO Nº001</div>
   <div class="card-body">
     <h5 class="card-title">Valor R$150,00</h5>
@@ -43,6 +45,7 @@
   </div>
 </div>   <a class="toast" role="alert">---- </a>
         <div class=" card text-white bg-success mb-3" style="max-width: 18rem;">
+            
   <div class="card-header ">PEDIDO Nº002</div>
   <div class="card-body">
       
@@ -64,6 +67,7 @@
       
     <h5 class="card-title ">Valor R$80,00</h5>
     <p class="card-text">Entregue dia: 06/11/2019</p>
+                -->
   </div>
 </div>  
         

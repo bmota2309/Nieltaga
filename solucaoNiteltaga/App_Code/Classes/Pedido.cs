@@ -16,14 +16,15 @@ namespace solucaoNiteltaga.Classes
     /// <summary>
     /// Descrição resumida de Pedido
     /// </summary>
-    public class Itempedido
+   public class Itempedido
     {
         
         //propriedades
         //tbl_itemPedido
-        public string Nome { get; set; }
-        public int Quantidade { get; set; }
-        public String Objcardapio { get; set;}
+        public string Descricao { get; set; } //itp_descricao
+        public int Quantidade { get; set; } //itp_quantidade
+        public int Cardapio { get; set;} //car_id
+        public int Pedido { get; set; } //ped_id
 
         //construtor
         public Itempedido()
@@ -42,7 +43,7 @@ namespace solucaoNiteltaga.Classes
         public DateTime DataEntrega { get; set; }
         public decimal ValorTotal { get; set; }
         public string Observacao { get; set; }
-        public Char UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
 
 
         //construtor

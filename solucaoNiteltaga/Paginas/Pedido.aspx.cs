@@ -10,35 +10,16 @@ using System.Web.UI.WebControls;
 
 public partial class Paginas_Pedido : System.Web.UI.Page
 {
+    private void Carrega()
+    {
+        PedidoBD bd = new PedidoBD();
+        DataSet ds = bd.SelectAll();
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-            CarregarCardapio();
-
-        if (gdvCardapio.Rows.Count > 1)
-            gdvCardapio.HeaderRow.TableSection = TableRowSection.TableHeader;
-
+       
     }
-    public void CarregarCardapio()
-    {
-        DataSet dsCardapio = PedidoBD.SelectAll();
-        int qtd = Funcoes.DSQuantidadesRegistros(dsCardapio);
-
-        if (qtd > 0)
-        {
-            gdvCardapio.DataSource = dsCardapio.Tables[0].DefaultView; //passa o dataset para o datasource do gridview
-            gdvCardapio.DataBind(); //carregar a tabela
-            gdvCardapio.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-            ddlCardapio.DataSource = dsCardapio.Tables[0].DefaultView;
-            ddlCardapio.DataTextField = "car_nome";
-            ddlCardapio.DataBind();
-        }
-        else
-        {
-
-        }
-    }
+    
     protected void btnOK_Click(object sender, EventArgs e)
     {
         Response.Write(ddlCardapio.SelectedItem.Text);
@@ -56,7 +37,7 @@ public partial class Paginas_Pedido : System.Web.UI.Page
 
     protected void btnSalvar_Click(object sender, EventArgs e)
     {
-        Itempedido itempedido = new Itempedido();
+        Pedido itempedido = new Pedido();
         Pedido pedido = new Pedido();
         DateTime dataPedido = Convert.ToDateTime(txtDataPedido.Text);
         pedido.DataPedido = dataPedido;
@@ -64,7 +45,6 @@ public partial class Paginas_Pedido : System.Web.UI.Page
         pedido.DataEntrega = dataEntrega;
         pedido.Observacao = txtObservacao.Text;
         pedido.ValorTotal = Convert.ToDecimal(txtValorTotal.Text);
-        itempedido.Objcardapio = txtobjcardapio.Text;
 
         PedidoBD bd = new PedidoBD();
         if (bd.Insert(pedido))
@@ -74,7 +54,6 @@ public partial class Paginas_Pedido : System.Web.UI.Page
             txtDataEntrega.Text = "";
             txtObservacao.Text = "";
             txtValorTotal.Text = "";
-            txtobjcardapio.Text = "";
         }
         else
         {

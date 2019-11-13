@@ -21,7 +21,7 @@
         </div><br /><div class="navbar-light bg-light">
     <a id="barra"> CADASTRO DE PEDIDOS</a>
         </div>
-    <div class="row form-group"  id="base">
+    <div class="row form-group"  id="base" aria-valuetext="100">
         <div class="card text-center col-12">
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
@@ -38,20 +38,23 @@
     </ul>
   </div>
   <div class="card-body">
-   
-      <asp:Label ID="txtobjcardapio" runat="server" Text=""></asp:Label>
+
             <br /><asp:Label ID="dataPedido" cssClass="navbar bg-light font-weight-bold " runat="server" Text="dataPedido">DATA PEDIDO:</asp:Label>
-            <asp:TextBox ID="txtDataPedido"  cssClass="form-control"  runat="server" OnTextChanged="txtDataPedido_TextChanged" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="txtDataPedido"  cssClass="form-control"  runat="server" OnTextChanged="txtDataPedido_TextChanged" TextMode="Date" ValidateRequestMode="Enabled"></asp:TextBox>
             <asp:Label ID="dataEntrega" CssClass="navbar bg-light font-weight-bold" runat="server" Text="dataEntrega">DATA ENTREGA:</asp:Label>
-            <asp:TextBox ID="txtDataEntrega" CssClass="form-control" runat="server" CausesValidation="True" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="txtDataEntrega" CssClass="form-control" runat="server" CausesValidation="True" TextMode="Date" ValidateRequestMode="Enabled"></asp:TextBox>
             <asp:Label ID="observacao" CssClass="navbar bg-light font-weight-bold" runat="server" Text="observacao">OBSERVAÇÃO:</asp:Label>
             <asp:TextBox ID="txtObservacao" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
             <asp:Label ID="valorTotal" CssClass="navbar bg-light font-weight-bold" runat="server" Text="valorTotal">VALOR TOTAL:</asp:Label>
-            <asp:TextBox ID="txtValorTotal" CssClass="form-control" runat="server" TextMode="Number" Rows="1"></asp:TextBox>
-            <asp:Button ID="btnSalvar" CssClass="btn btn-primary" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
-           <asp:Label ID="lblMensagem" cssClass="alert" runat="server" Text=""></asp:Label>
+            <asp:TextBox ID="txtValorTotal" CssClass="form-control" runat="server" Rows="0" ValidateRequestMode="Enabled" ViewStateMode="Enabled" BorderStyle="Solid" Font-Bold="True" SkinID="R$"></asp:TextBox>
+      <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Paginas/ItensPedido.aspx">Cardápio+</asp:LinkButton>
+      <br />
+      <asp:Button ID="btnSalvar" CssClass="btn btn-primary" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+           
+      <asp:Label ID="lblMensagem" cssClass="alert" runat="server" Text=""></asp:Label>
     
   </div>
+
 </div> 
         </div>  
         
@@ -66,9 +69,5 @@
                 </Columns>
             </asp:GridView>
                 -->
-        </div>
-            
-            
-     </div>
-   </div>
+       
 </asp:Content>

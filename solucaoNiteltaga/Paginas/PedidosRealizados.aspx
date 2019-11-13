@@ -27,12 +27,12 @@
 
       </li>
       <li class="nav-item col-sm-4">
-        <a class="nav-link active" href="PedidosRealizados.aspx"   >PEDIDOS REALIZADOS</a>
+        <a class="nav-link active" href="PedidosRealizados.aspx">PEDIDOS REALIZADOS</a>
       </li>
       <li class="nav-item col-sm-4">
         <a class="nav-link " href="PedidosEntregues.aspx">PEDIDOS ENTREGUES</a>
-      </li>
 
+      </li>
     </ul>
   </div>
   <div class="card-body">
@@ -42,7 +42,39 @@
             
     
   </div>
+            
+        <asp:GridView  ID="GridView1" CssClass="col" runat="server" OnRowCommand="GridView1_RowCommand" PageSize="1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Dotted" BorderWidth="2px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+            
+            <Columns >
+ <asp:TemplateField ControlStyle-CssClass="btn btn-info">
+ <ItemTemplate>
+ <asp:LinkButton  ID="lbAlterar" runat="server" CommandName="Alterar" 
+CommandArgument='<%# Bind("PEDIDO")%>'>Alterar</asp:LinkButton>
+
+ </ItemTemplate>
+
+<ControlStyle CssClass="btn btn-info"></ControlStyle>
+ </asp:TemplateField>
+ <asp:TemplateField ControlStyle-CssClass="btn btn-danger">
+ <ItemTemplate>
+ <asp:LinkButton ID="lbDeletar" runat="server" CommandName="Deletar" OnClientClick="return confirm ('DESEJA EXCLUIR ESTE PEDIDO?')"
+CommandArgument='<%# Bind("PEDIDO")%>'>Excluir</asp:LinkButton>
+ </ItemTemplate>
+
+<ControlStyle CssClass="btn btn-danger"></ControlStyle>
+ </asp:TemplateField>
+ </Columns>
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
+            </asp:GridView>
 </div> 
+
         </div>
 
 </asp:Content>
