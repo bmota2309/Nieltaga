@@ -18,29 +18,7 @@
 </head>
     <body>
         
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="nav">
-            <div class="col">
-  <a class="navbar-collapse card card-columns text-right" id="nieltaga">N I E L T A G A</a></div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-     <h5>MENU</h5>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav  mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link card " href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link card" href="#">LUCRATIVIDADE</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link card" href="Receitas.aspx">RECEITAS</a>
-      </li>
-      
-    </ul>
-  </div>
-</nav>
+        
             <div class="container">
                                        
                                 <asp:ContentPlaceHolder id="TituloPagina" runat="server">
@@ -57,6 +35,24 @@
                     <a>NIELTAGA-Corpright</a>
                  </div>
                     </div>
+                <nav class="navbar flex-fill fixed-top navbar-expand navbar-light" id="nav">
+            <img src="imgs/Logo.png" height="70"/>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="btn border-light col-4">
+        <a class="btn alert-primary " href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
+      
+      </li>
+      <li class="btn border-light col-6">
+        <a class="btn alert-primary" href="#">LUCRATIVIDADE</a>
+      </li>
+      <li class="btn border-light col-4">
+        <a class="btn alert-primary" href="Receitas.aspx">RECEITAS</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
             </div>
 </body>
 </html>

@@ -69,6 +69,26 @@ namespace solucaoNiteltaga.Persistencia
         }
 
         */
+        //Search
+        public DataSet Search(string termo)
+        {
+            DataSet ds = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT ped_id AS 'PEDIDO', ped_dataPedido AS 'DT.PEDIDO', ped_dataEntrega AS 'DT.ENTREGA', ped_observacao AS 'OBSERVAÇÃO', ped_valorTotal AS 'R$' FROM tbl_pedido WHERE ped_id LIKE ?ped_id or ped_dataPedido LIKE ?ped_dataPedido ORDER BY ped_id", objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?ped_id", '%' + termo + '%'));
+            objCommand.Parameters.Add(Mapped.Parameter("?ped_dataPedido", '%' + termo + '%'));
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+        
+
         //update
         public bool Update(Pedido pedido)
         {
@@ -87,7 +107,21 @@ namespace solucaoNiteltaga.Persistencia
             objConexao.Dispose();
             return true;
         }
-
+        //update Entrega
+        public bool Updatee(Pedido pedido)
+        {
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            string sql = "UPDATE tbl_pedido SET ped_entregue= '1' WHERE ped_id = ?codigo";
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?pedidoEntregue", pedido.PedidoEntregue));
+            objCommand.ExecuteNonQuery();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return true;
+        }
 
         //Insert
         public bool Insert(Pedido pedido)
@@ -109,6 +143,8 @@ namespace solucaoNiteltaga.Persistencia
             objConexao.Dispose();
             return true;
         }
+
+       
         //Select
         public Pedido Select(int id)
         {
@@ -154,6 +190,24 @@ namespace solucaoNiteltaga.Persistencia
             objConexao.Dispose();
             return ds;
         }
+
+        //Select All Entregue
+        public DataSet SelectAllE()
+        {
+            DataSet dse = new DataSet();
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            System.Data.IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM tbl_pedido AS p where ped_entregue <> 0", objConexao);
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(dse);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return dse;
+        }
+
         //delete
         public bool Delete(int id)
         {

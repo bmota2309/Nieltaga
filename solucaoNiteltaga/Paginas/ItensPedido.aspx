@@ -32,12 +32,13 @@
       <asp:Label ID="Label1" runat="server" Text="Inclusão de Itens"></asp:Label>
       <asp:Label ID="lbNumeroPedido" runat="server" Text="Pedido"></asp:Label>
       <asp:GridView ID="GridView1" runat="server">
+
           
       </asp:GridView>
 
       <!-- Fim do conteúdo -->
       <br />
-      <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Paginas/Pedido.aspx">VOLTAR</asp:LinkButton>
+      <%--<asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Paginas/Pedido.aspx">VOLTAR</asp:LinkButton>--%>
   </div>
   <div class="card-body">
 

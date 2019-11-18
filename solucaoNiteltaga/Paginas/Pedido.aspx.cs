@@ -14,6 +14,9 @@ public partial class Paginas_Pedido : System.Web.UI.Page
     {
         PedidoBD bd = new PedidoBD();
         DataSet ds = bd.SelectAll();
+        DataSet dse = bd.SelectAllE();
+        
+        
     }
     protected void Page_Load(object sender, EventArgs e)
     {

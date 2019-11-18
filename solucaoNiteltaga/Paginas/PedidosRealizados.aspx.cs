@@ -10,6 +10,22 @@ using System.Data;
 
 public partial class Paginas_PedidosRealizados : System.Web.UI.Page
 {
+    private void CarregaGrid(string termo)
+    {
+        PedidoBD bd = new PedidoBD();
+        DataSet ds;
+        if (termo != "")
+            ds = bd.Search(termo);
+        else
+            ds = bd.SelectAll();
+        GridView1.DataSource = ds.Tables[0].DefaultView;
+        GridView1.DataBind();
+        int registros = ds.Tables[0].Rows.Count;
+        if (registros == 0)
+            lblMensagem.Text = "<h1 class='text-center alert alert-danger'> PEDIDO Nº " + termo + " NÃO ENCONTRADO<h1>";
+        else
+            lblMensagem.Text = "<h6 class='text-center alert alert-success'>FORAM ENCONTRADO(S) " + registros + " PEDIDO(S) </h6>";
+    }
     private void Carrega()
     {
         PedidoBD bd = new PedidoBD();
@@ -19,7 +35,14 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        Carrega();
+        {
+            Carrega();
+        }
+        if (!Page.IsPostBack)
+        {
+            CarregaGrid("");
+        }
+       
     }
 
     
@@ -51,9 +74,47 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
                 bd.Delete(codigo);
                 Carrega();
                 break;
-                
+            case "Entregar":
+                PedidoBD bde = new PedidoBD();
+                Session["ID"] = codigo;
+                Carrega();
+                break;
+
             default:
                 break;
+        }
+    }
+
+    protected void btnPesquisa_Click(object sender, EventArgs e)
+    {
+        string termo = txtPesquisa.Text.Trim();
+        if (termo != string.Empty)
+        {
+            CarregaGrid(termo);
+        }
+        else
+        {
+            CarregaGrid("");
+            txtPesquisa.Focus();
+        }
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void lbEntrega(object sender, EventArgs e)
+    {
+        PedidoBD bd = new PedidoBD();
+        Pedido pedido = bd.Select(Convert.ToInt32(Session["ID"]));
+
+        if (bd.Update(pedido))
+        {
+            lblMensagem.Text = " <p class='alert alert-success'>Funcionário alterado com sucesso</p>";
+        }
+        else
+        {
+            lblMensagem.Text = "Erro ao salvar.";
         }
     }
 }

@@ -35,53 +35,32 @@
         <br />
         <br />
         <!-- CARD -->
+        <div class="table-responsive">
+        <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="1011px">
+                <Columns>
+                    <asp:BoundField DataField="ped_id" HeaderText="PEDIDO" ControlStyle-CssClass="card-header">
+<ControlStyle CssClass="card-header"></ControlStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="ped_valorTotal" HeaderText="VALOR" ControlStyle-CssClass="card-title" >
+<ControlStyle CssClass="card-title"></ControlStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="ped_dataEntrega" HeaderText="DT.ENTREGA" ControlStyle-CssClass="card-text" DataFormatString="{0:d}" >
+<ControlStyle CssClass="card-text"></ControlStyle>
+                    </asp:BoundField>
+                </Columns>
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
+            </asp:GridView>
+            <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
+            </div>
         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-            
-            <!--
-  <div class="card-header">PEDIDO Nº001</div>
-  <div class="card-body">
-    <h5 class="card-title">Valor R$150,00</h5>
-    <p class="card-text">Entregue dia: 06/11/2019</p>
   </div>
-</div>   <a class="toast" role="alert">---- </a>
-        <div class=" card text-white bg-success mb-3" style="max-width: 18rem;">
-            
-  <div class="card-header ">PEDIDO Nº002</div>
-  <div class="card-body">
-      
-    <h5 class="card-title ">Valor R$110,00</h5>
-    <p class="card-text">Entregue dia: 06/11/2019</p>
-  </div>
-</div>  <a class="toast" role="alert">---- </a>
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-  <div class="card-header">PEDIDO Nº003</div>
-  <div class="card-body">
-    <h5 class="card-title">Valor R$202,00</h5>
-    <p class="card-text">Entregue dia: 06/11/2019</p>
-  </div>
-</div>   
-        <a class="toast" role="alert">---- </a>
-        <div class=" card text-white bg-success mb-3" style="max-width: 18rem;">
-  <div class="card-header ">PEDIDO Nº004</div>
-  <div class="card-body">
-      
-    <h5 class="card-title ">Valor R$80,00</h5>
-    <p class="card-text">Entregue dia: 06/11/2019</p>
-                -->
-  </div>
-</div>  
-        
-
-    </ul>
-  
-  <div class="card-body">
-   
-      <asp:Label ID="txtobjcardapio" runat="server" Text=""></asp:Label>
-      <asp:MultiView ID="MultiView1" runat="server"></asp:MultiView>
-            
-    
-  </div>
-</div> 
         </div>
 
 </asp:Content>
