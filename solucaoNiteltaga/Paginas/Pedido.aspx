@@ -6,6 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <link href="../Content/style.css" rel="stylesheet" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.min.js"></script>
   
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TituloPagina" Runat="Server">
@@ -37,7 +38,7 @@
       </li>
     </ul>
   </div>
-  <div class="card-body">
+  <div class="card-body shadow">
 
             <br /><asp:Label ID="dataPedido" cssClass="navbar bg-light font-weight-bold " runat="server" Text="dataPedido">DATA PEDIDO:</asp:Label>
             <asp:TextBox ID="txtDataPedido"  cssClass="form-control"  runat="server" OnTextChanged="txtDataPedido_TextChanged" TextMode="Date" ValidateRequestMode="Enabled"></asp:TextBox>

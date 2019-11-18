@@ -38,7 +38,7 @@ public partial class Pages_Login : System.Web.UI.Page
         string senha = txtCpf.Text.Trim();
         if (!IsPreenchido(email))
         {
-            lblMensagem.Text = "Preencha o email";
+            lblMensagem.Text = "Preencha o Nome";
             txtNome.Focus();
             return;
         }
@@ -53,7 +53,7 @@ public partial class Pages_Login : System.Web.UI.Page
         pessoa = bd.Autentica(email, senha);
         if (!UsuarioEncontrado(pessoa))
         {
-            lblMensagem.Text = "Usuário não encontrado";
+            lblMensagem.Text = "<a class='alert alert-warning' >Nome não cadastrado</a>";
             txtNome.Focus();
             return;
         }
@@ -88,8 +88,13 @@ public partial class Pages_Login : System.Web.UI.Page
     PessoaBD bd = new PessoaBD();
     Pessoa pessoa = new Pessoa();
 
-    
+
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
     }
+}
    
 
 

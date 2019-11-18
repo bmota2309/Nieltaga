@@ -13,20 +13,23 @@
     <asp:ContentPlaceHolder id="head" runat="server">
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <link href="../Content/style.css" rel="stylesheet" />
+        <script src="../Scripts/bootstrap.min.js"></script>
     </asp:ContentPlaceHolder>
 </head>
     <body>
         
-        <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light">
-            <div class="col-3 card border-dark badge-warning text-sm-left text-md-right">
-  <a class="navbar-brand" href="#"> N I E L T A G A</a></div>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="nav">
+            <div class="col">
+  <a class="navbar-collapse card card-columns text-right" id="nieltaga">N I E L T A G A</a></div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
+     <h5>MENU</h5>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav  mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link card " href="Pedido.aspx">PEDIDOS <span class="sr-only"></span></a>
+        <a class="nav-link card " href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link card" href="#">LUCRATIVIDADE</a>

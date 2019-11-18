@@ -10,7 +10,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="TituloPagina" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Contentbody" Runat="Server">
-    <!--Conteúdo aquí -->
+    <!--Menu aquí -->
     <div class="btn     col-1">
         <br />
     <asp:Button ID="Button1" CssClass="btn btn-dark" runat="server" Text="SAIR" OnClick="btnSair_Click" Height="30px" />
@@ -29,7 +29,11 @@
         
     </ul>
       <!-- Conteudo aqui-->
-     
+      <asp:Label ID="Label1" runat="server" Text="Inclusão de Itens"></asp:Label>
+      <asp:Label ID="lbNumeroPedido" runat="server" Text="Pedido"></asp:Label>
+      <asp:GridView ID="GridView1" runat="server">
+          
+      </asp:GridView>
 
       <!-- Fim do conteúdo -->
       <br />

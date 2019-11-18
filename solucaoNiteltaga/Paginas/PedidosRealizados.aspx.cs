@@ -21,6 +21,8 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
     {
         Carrega();
     }
+
+    
     /* Altera ou exclui Pedido*/
     
     protected void btnSair_Click(object sender, EventArgs e)

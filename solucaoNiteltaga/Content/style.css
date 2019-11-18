@@ -89,3 +89,35 @@ div{
     padding:8px;
     border:3px;
 }
+@media only screen and (min-width: 768px) 
+{
+    #login{
+        margin-top:10%;
+
+    }
+    
+    
+}
+#BId {
+    background-image: url(../Paginas/imgs/cupcake_chocolate_shadow_121538_3840x2400.jpg);
+    background-position: center;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #6f1c00;
+    color: white;
+    text-align: center;
+    
+    }
+#nav {
+    background-color: #512516;
+    font-size:20px;
+    align-items:center;
+}
+#nieltaga{
+    font-size:30px;
+    font-family:Arial, Helvetica, sans-serif;
+}
