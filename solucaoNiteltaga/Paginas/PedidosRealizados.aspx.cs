@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 
 public partial class Paginas_PedidosRealizados : System.Web.UI.Page
-{
+{ 
     private void CarregaGrid(string termo)
     {
         PedidoBD bd = new PedidoBD();
@@ -25,7 +25,8 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
             lblMensagem.Text = "<h1 class='text-center alert alert-danger'> PEDIDO Nº " + termo + " NÃO ENCONTRADO<h1>";
         else
             lblMensagem.Text = "<h6 class='text-center alert alert-success'>FORAM ENCONTRADO(S) " + registros + " PEDIDO(S) </h6>";
-    }
+
+        }
     private void Carrega()
     {
         PedidoBD bd = new PedidoBD();
@@ -73,17 +74,21 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
                 PedidoBD bd = new PedidoBD();
                 bd.Delete(codigo);
                 Carrega();
+                lblMensagem.Text = " <p class='alert alert-success'>PEDIDO <b>" + codigo + "</b> EXCLUIDO COM SUCESSO!</p>";
                 break;
             case "Entregar":
+                codigo = Convert.ToInt32(e.CommandArgument);
                 PedidoBD bde = new PedidoBD();
-                Session["ID"] = codigo;
+                bde.Updatee(codigo);
                 Carrega();
+                lblMensagem.Text = " <p class='alert alert-success'>PEDIDO <b>" + codigo + "</b> ENTREGUE COM SUCESSO!</p>";
+                
                 break;
-
             default:
                 break;
+
         }
-    }
+            }
 
     protected void btnPesquisa_Click(object sender, EventArgs e)
     {
@@ -105,16 +110,7 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
     }
     protected void lbEntrega(object sender, EventArgs e)
     {
-        PedidoBD bd = new PedidoBD();
-        Pedido pedido = bd.Select(Convert.ToInt32(Session["ID"]));
-
-        if (bd.Update(pedido))
-        {
-            lblMensagem.Text = " <p class='alert alert-success'>Funcionário alterado com sucesso</p>";
-        }
-        else
-        {
-            lblMensagem.Text = "Erro ao salvar.";
-        }
+        
+        
     }
 }

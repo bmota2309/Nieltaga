@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +10,13 @@ using solucaoNiteltaga.Persistencia;
 
 public partial class Paginas_ItensPedido : System.Web.UI.Page
 {
+    private void Carrega()
+    {
+        PedidoBD bd = new PedidoBD();
+        DataSet ds = bd.SelectAll();
+        GridView1.DataSource = ds.Tables[0].DefaultView;
+        GridView1.DataBind();
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -27,5 +35,18 @@ public partial class Paginas_ItensPedido : System.Web.UI.Page
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btInserir_Click(object sender, EventArgs e)
+    {
+        PedidoBD bd = new PedidoBD();
+        Pedido pedido = bd.Select(Convert.ToInt32(Session["ID"]));
+
+
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        
     }
 }

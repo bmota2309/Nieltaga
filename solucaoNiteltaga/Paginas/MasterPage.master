@@ -35,7 +35,7 @@
                     <a>NIELTAGA-Corpright</a>
                  </div>
                     </div>
-                <nav class="navbar flex-fill fixed-top navbar-expand navbar-light" id="nav">
+                <nav class="navbar flex-fill fixed-bottom navbar-expand navbar-light" id="nav">
             <img src="imgs/Logo.png" height="70"/>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mt-2 mt-lg-0">

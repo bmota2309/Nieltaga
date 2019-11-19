@@ -67,7 +67,7 @@
  <asp:TemplateField ControlStyle-CssClass="btn btn-info">
  <ItemTemplate>
  <asp:LinkButton  ID="lbAlterar" runat="server" CommandName="AdcItem" 
-PostBackUrl="~/Paginas/ItensPedido.aspx">+Aicionar Itens</asp:LinkButton>
+PostBackUrl="~/Paginas/ItensPedido.aspx">+Adicionar Itens</asp:LinkButton>
 
  </ItemTemplate>
 

@@ -35,6 +35,7 @@
         <br />
         <br />
         <!-- CARD -->
+        
         <div class="table-responsive">
         <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="1011px">
                 <Columns>

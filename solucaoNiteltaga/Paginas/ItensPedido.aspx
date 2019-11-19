@@ -29,13 +29,21 @@
         
     </ul>
       <!-- Conteudo aqui-->
-      <asp:Label ID="Label1" runat="server" Text="Inclusão de Itens"></asp:Label>
-      <asp:Label ID="lbNumeroPedido" runat="server" Text="Pedido"></asp:Label>
-      <asp:GridView ID="GridView1" runat="server">
+      <asp:Label ID="titulo" runat="server" Text="Inclusão de Itens"></asp:Label>
+      <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+          <Columns>
 
-          
+          </Columns>
       </asp:GridView>
-
+      <br />
+      <asp:Label ID="pedido" runat="server" Text="PEDIDO N:"></asp:Label>
+      <asp:TextBox ID="txtPedido" runat="server"></asp:TextBox><br />
+      <asp:Label ID="descricao" runat="server" Text="Descricao:"></asp:Label>
+      <asp:TextBox ID="txtDescricao" runat="server"></asp:TextBox><br />
+      <asp:Label ID="txtQuantidade" runat="server" Text="Quantidade:"></asp:Label>
+      <asp:TextBox ID="quantidade" runat="server"></asp:TextBox>
+      <asp:Button ID="btInserir" runat="server" Text="INSERIR" OnClick="btInserir_Click" />
+      <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
       <!-- Fim do conteúdo -->
       <br />
       <%--<asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Paginas/Pedido.aspx">VOLTAR</asp:LinkButton>--%>

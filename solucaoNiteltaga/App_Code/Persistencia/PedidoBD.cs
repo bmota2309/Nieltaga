@@ -1,4 +1,6 @@
 ﻿using NIELTAGA;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using System;
 using System.Web;
 using solucaoNiteltaga.Classes;//para acesso a classe Pedido
@@ -12,22 +14,26 @@ namespace solucaoNiteltaga.Persistencia
     public class PedidoBD
     {
 
-        /*Insert ITEM PEDIDO
-        public bool Insert(Itempedido itemPedido)
+        //Insert ITEM PEDIDO
+        
+        public bool Insertit(Itempedido itemPedido)
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "INSERT INTO tbl_itemPedido)(itp_drescricao, itp_quantidade) VALUES (?descricao, ?quantidade)";
+            string sql = "INSERT INTO tbl_itemPedido)(itp_drescricao, itp_quantidade, car_id, ped_id) VALUES (?descricao, ?quantidade, ?cardapio)";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
-            objCommand.Parameters.Add(Mapped.Parameter("?dataPedido", itemPedido.Nome));
-            objCommand.Parameters.Add(Mapped.Parameter("?dataEntrega", itemPedido.Quantidade));
+            objCommand.Parameters.Add(Mapped.Parameter("?descricao", itemPedido.Descricao));
+            objCommand.Parameters.Add(Mapped.Parameter("?quantidade", itemPedido.Quantidade));
+            //objCommand.Parameters.Add(Mapped.Parameter("?cardapio", cardapio));
+            //objCommand.Parameters.Add(Mapped.Parameter("?codigo", codigo));
             objCommand.ExecuteNonQuery();
             objConexao.Close();
             objCommand.Dispose();
             objConexao.Dispose();
             return true;
         }
+        /*
         public static Itempedido Select(string itCardapio)
         {
             try
@@ -95,7 +101,7 @@ namespace solucaoNiteltaga.Persistencia
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             string sql = "UPDATE tbl_pedido SET ped_dataPedido=?dataPedido, ped_dataEntrega=?dataEntrega ped_valorTotal=?valorTotal, ped_observacao=?observacao WHERE ped_id=?codigo";
-        objConexao = Mapped.Connection();
+            objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?dataPedido", pedido.DataPedido));
             objCommand.Parameters.Add(Mapped.Parameter("?dataEntrega", pedido.DataEntrega));
@@ -108,14 +114,15 @@ namespace solucaoNiteltaga.Persistencia
             return true;
         }
         //update Entrega
-        public bool Updatee(Pedido pedido)
+        public bool Updatee(int pedido)
+
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "UPDATE tbl_pedido SET ped_entregue= '1' WHERE ped_id = ?codigo";
+            string sql = "UPDATE tbl_pedido SET ped_entregue= '1' WHERE ped_id=?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
-            objCommand.Parameters.Add(Mapped.Parameter("?pedidoEntregue", pedido.PedidoEntregue));
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", pedido));
             objCommand.ExecuteNonQuery();
             objConexao.Close();
             objCommand.Dispose();
@@ -182,7 +189,7 @@ namespace solucaoNiteltaga.Persistencia
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT ped_id AS 'PEDIDO', ped_dataPedido AS 'DT.PEDIDO', ped_dataEntrega AS 'DT.ENTREGA', ped_observacao AS 'OBSERVAÇÃO', ped_valorTotal AS 'R$' FROM tbl_pedido AS p", objConexao);
+            objCommand = Mapped.Command("SELECT ped_id AS 'PEDIDO', ped_dataPedido AS 'DT.PEDIDO', ped_dataEntrega AS 'DT.ENTREGA', ped_observacao AS 'OBSERVAÇÃO', ped_valorTotal AS 'R$' FROM tbl_pedido AS p WHERE ped_entregue <> 1 ", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
@@ -194,6 +201,7 @@ namespace solucaoNiteltaga.Persistencia
         //Select All Entregue
         public DataSet SelectAllE()
         {
+
             DataSet dse = new DataSet();
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;

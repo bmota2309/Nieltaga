@@ -25,7 +25,6 @@ namespace solucaoNiteltaga.Classes
         public int Quantidade { get; set; } //itp_quantidade
         public int Cardapio { get; set;} //car_id
         public int Pedido { get; set; } //ped_id
-        public int PedidoEntregie { get; set; }//ped_entregue
 
         //construtor
         public Itempedido()
