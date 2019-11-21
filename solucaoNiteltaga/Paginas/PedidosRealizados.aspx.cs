@@ -64,10 +64,11 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
         int codigo = 0;
         switch (e.CommandName)
         {
-            case "Alterar":
+            case "Item":
                 codigo = Convert.ToInt32(e.CommandArgument);
                 Session["ID"] = codigo;
-                Response.Redirect("AlterarPedido.aspx");
+                Response.Redirect("ItensPedido.aspx");
+                
                 break;
             case "Deletar":
                 codigo = Convert.ToInt32(e.CommandArgument);
@@ -91,8 +92,9 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
             }
 
     protected void btnPesquisa_Click(object sender, EventArgs e)
-    {
+    {   
         string termo = txtPesquisa.Text.Trim();
+        
         if (termo != string.Empty)
         {
             CarregaGrid(termo);

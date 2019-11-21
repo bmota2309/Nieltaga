@@ -16,7 +16,7 @@ namespace solucaoNiteltaga.Classes
     /// <summary>
     /// Descrição resumida de Pedido
     /// </summary>
-   public class Itempedido
+   public class Itempedido : Pedido //Itempedido tem Pedido
     {
         
         //propriedades

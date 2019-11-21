@@ -29,10 +29,15 @@
         
     </ul>
       <!-- Conteudo aqui-->
-      <asp:Label ID="titulo" runat="server" Text="Inclusão de Itens"></asp:Label>
+      <asp:Label ID="titulo" runat="server" Text="Inclusão de Itens!" CssClass="badge-danger"></asp:Label>
       <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
           <Columns>
-
+              <asp:BoundField ID="txtPedido" DataField="ped_id" HeaderText="PEDIDO" ControlStyle-CssClass="card-title" >
+<ControlStyle CssClass="card-title bg-danger"></ControlStyle></asp:BoundField>
+                  
+                  <asp:BoundField DataField="itp_id" HeaderText="ITEM PEDIDO" ControlStyle-CssClass="card-title" >
+<ControlStyle CssClass="card-title bg-secondary"></ControlStyle>
+                    </asp:BoundField>
           </Columns>
       </asp:GridView>
       <br />

@@ -66,11 +66,9 @@
                     
  <asp:TemplateField ControlStyle-CssClass="btn btn-info">
  <ItemTemplate>
- <asp:LinkButton  ID="lbAlterar" runat="server" CommandName="AdcItem" 
-PostBackUrl="~/Paginas/ItensPedido.aspx">+Adicionar Itens</asp:LinkButton>
-
+ <asp:LinkButton ID="lbItem" runat="server" CommandName="Item"
+     CommandArgument='<%# Bind("PEDIDO")%>'>+Adicionar Itens</asp:LinkButton>
  </ItemTemplate>
-
 <ControlStyle CssClass="btn btn-info"></ControlStyle>
  </asp:TemplateField>
  <asp:TemplateField ControlStyle-CssClass="btn btn-danger">
