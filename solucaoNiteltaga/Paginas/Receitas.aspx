@@ -4,8 +4,9 @@
     Home
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
-    <link href="../Content/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../Content/style.css" rel="stylesheet" />
+   <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="../Content/style.css" rel="stylesheet" />
+        <script src="../Scripts/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contentbody" Runat="Server">
     

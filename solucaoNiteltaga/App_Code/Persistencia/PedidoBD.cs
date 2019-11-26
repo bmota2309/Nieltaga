@@ -197,7 +197,24 @@ namespace solucaoNiteltaga.Persistencia
             objConexao.Dispose();
             return ds;
         }
-        
+
+        //Seleciona Grid Pedidos
+        //public DataSet SelectAllG(int cod)
+        //{
+        //    DataSet ds = new DataSet();
+        //    System.Data.IDbConnection objConexao;
+        //    System.Data.IDbCommand objCommand;
+        //    System.Data.IDataAdapter objDataAdapter;
+        //    objConexao = Mapped.Connection();
+        //    objCommand = Mapped.Command("SELECT ped_id AS 'PEDIDO', ped_dataPedido AS 'DT.PEDIDO', ped_dataEntrega AS 'DT.ENTREGA', ped_observacao AS 'OBSERVAÇÃO', ped_valorTotal AS 'R$' FROM tbl_pedido AS p WHERE ped_id = ?codigo", objConexao);
+        //    objCommand.Parameters.Add(Mapped.Parameter("?codigo", cod));
+        //    objDataAdapter = Mapped.Adapter(objCommand);
+        //    objDataAdapter.Fill(ds);
+        //    objConexao.Close();
+        //    objCommand.Dispose();
+        //    objConexao.Dispose();
+        //    return ds;
+        //}
 
         //Select All Entregue
         public DataSet SelectAllE()

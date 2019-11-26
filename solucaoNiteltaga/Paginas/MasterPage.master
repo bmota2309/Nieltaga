@@ -37,7 +37,22 @@
                     </div>
                 <nav class="navbar flex-fill fixed-bottom navbar-expand navbar-light" id="nav">
             <img src="imgs/Logo.png" height="70"/>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div class="row text-center">
+                        <div class="col-3">
+                       <a class="btn btn-dark " type="button" href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
+                    </div>
+                    <div class="col-3">
+                       <a class="btn btn-dark" type="button"  href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
+                    </div>
+                    <div class="col-3">
+                       <a class="btn btn-dark  "type="button" href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
+                    </div>
+                    <div class="col-3">
+                        <a class="btn btn-dark " type="button" href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
+                    </div>
+                    </div>
+                    </nav>
+        <%--<div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mt-2 mt-lg-0">
       <li class="btn border-light col-4">
         <a class="btn alert-primary " href="Pedido.aspx">PEDIDOS <span class="sr-only">(current)</span></a>
@@ -49,10 +64,13 @@
       <li class="btn border-light col-4">
         <a class="btn alert-primary" href="Receitas.aspx">RECEITAS</a>
       </li>
+        <li class="btn border-light col-4">
+        <a class="btn alert-primary" href="ProgressoEstoque.aspx">ESTOQUE</a>
+      </li>
       
-    </ul>
+    </ul>--%>
   </div>
-</nav>
+
             </div>
 </body>
 </html>

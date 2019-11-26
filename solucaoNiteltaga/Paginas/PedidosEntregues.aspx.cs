@@ -11,8 +11,16 @@ using solucaoNiteltaga.Persistencia;
 
 public partial class Paginas_PedidosEntregues : System.Web.UI.Page
 {
+    static void ItensPedido(int id)
+    {
+        PedidoBD bd = new PedidoBD();
+        DataSet ds = bd.SelectAll();
 
-    private void CarregaGrid(string termo)
+    }
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+    }
+        private void CarregaGrid(string termo)
     {
         PedidoBD bd = new PedidoBD();
         DataSet dse;

@@ -21,24 +21,8 @@ public partial class Paginas_listarTodos : System.Web.UI.Page
 
     public void CarregarCardapio()
     {
-        DataSet dsCardapio = PedidoBD.SelectAll();
-        int qtd = Funcoes.DSQuantidadesRegistros(dsCardapio);
-
-        if (qtd > 0)
-        {
-            gdvCardapio.DataSource = dsCardapio.Tables[0].DefaultView; //passa o dataset para o datasource do gridview
-            gdvCardapio.DataBind(); //carregar a tabela
-            gdvCardapio.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-            ddlCardapio.DataSource = dsCardapio.Tables[0].DefaultView;
-            ddlCardapio.DataTextField = "car_nome";
-            ddlCardapio.DataBind();
-        }
-        else
-        {
-
-        }
-    }
+        
+            }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {

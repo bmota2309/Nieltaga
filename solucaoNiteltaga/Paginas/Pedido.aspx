@@ -48,7 +48,6 @@
             <asp:TextBox ID="txtObservacao" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
             <asp:Label ID="valorTotal" CssClass="navbar bg-light font-weight-bold" runat="server" Text="valorTotal">VALOR TOTAL:</asp:Label>
             <asp:TextBox ID="txtValorTotal" CssClass="form-control" runat="server" Rows="0" ValidateRequestMode="Enabled" ViewStateMode="Enabled" BorderStyle="Solid" Font-Bold="True" SkinID="R$"></asp:TextBox>
-      <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Paginas/ItensPedido.aspx">Cardápio+</asp:LinkButton>
       <br />
       <asp:Button ID="btnSalvar" CssClass="btn btn-primary" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
            
