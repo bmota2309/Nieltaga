@@ -37,15 +37,15 @@
         <!-- CARD -->
         
         <div class="table-responsive">
-        <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="1011px">
+        <asp:GridView ID="GridView1" CssClass="shadow table table-hover table-warning tabela" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="1011px">
                 <Columns>
                     <asp:BoundField DataField="ped_id" HeaderText="PEDIDO" ControlStyle-CssClass="card-header">
 <ControlStyle CssClass="card-header"></ControlStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="ped_valorTotal" HeaderText="VALOR" ControlStyle-CssClass="card-title" >
+                    <asp:BoundField DataField="ped_valorTotal" HeaderText="VALOR" ControlStyle-CssClass="card-title" DataFormatString="{0:c2}" >
 <ControlStyle CssClass="card-title"></ControlStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="ped_dataEntrega" HeaderText="DT.ENTREGA" ControlStyle-CssClass="card-text" DataFormatString="{0:d}" >
+                    <asp:BoundField DataField="ped_dataEntrega" HeaderText="DT.ENTREGA" ControlStyle-CssClass="card-text" DataFormatString="{0:D}" >
 <ControlStyle CssClass="card-text"></ControlStyle>
                     </asp:BoundField>
                 </Columns>
@@ -60,9 +60,6 @@
             </asp:GridView>
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
             </div>
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-  </div>
         </div>
 
 </asp:Content>
-

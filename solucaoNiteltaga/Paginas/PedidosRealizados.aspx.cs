@@ -78,6 +78,7 @@ public partial class Paginas_PedidosRealizados : System.Web.UI.Page
                 lblMensagem.Text = " <p class='alert alert-success'>PEDIDO <b>" + codigo + "</b> EXCLUIDO COM SUCESSO!</p>";
                 break;
             case "Entregar":
+                DateTime date = DateTime.Now;
                 codigo = Convert.ToInt32(e.CommandArgument);
                 PedidoBD bde = new PedidoBD();
                 bde.Updatee(codigo);

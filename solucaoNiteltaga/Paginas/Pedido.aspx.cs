@@ -56,7 +56,7 @@ public partial class Paginas_Pedido : System.Web.UI.Page
             txtDataPedido.Text = "";
             txtDataEntrega.Text = "";
             txtObservacao.Text = "";
-            txtValorTotal.Text = "";
+            txtValorTotal.Text = "0";
         }
         else
         {

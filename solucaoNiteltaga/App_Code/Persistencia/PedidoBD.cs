@@ -83,9 +83,10 @@ namespace solucaoNiteltaga.Persistencia
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT ped_id AS 'PEDIDO', ped_dataPedido AS 'DT.PEDIDO', ped_dataEntrega AS 'DT.ENTREGA', ped_observacao AS 'OBSERVAÇÃO', ped_valorTotal AS 'R$' FROM tbl_pedido WHERE ped_id LIKE ?ped_id or ped_dataPedido LIKE ?ped_dataPedido ORDER BY ped_id", objConexao);
+            objCommand = Mapped.Command("SELECT ped_id AS 'PEDIDO', ped_dataPedido AS 'DT.PEDIDO', ped_dataEntrega AS 'DT.ENTREGA', ped_observacao AS 'OBSERVAÇÃO', ped_valorTotal AS 'R$' FROM tbl_pedido WHERE ped_id LIKE ?ped_id or ped_dataPedido LIKE ?ped_dataPedido or ped_observacao LIKE ?ped_observacao ORDER BY ped_id", objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?ped_id", '%' + termo + '%'));
             objCommand.Parameters.Add(Mapped.Parameter("?ped_dataPedido", '%' + termo + '%'));
+            objCommand.Parameters.Add(Mapped.Parameter("?ped_observacao", '%' + termo + '%'));
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
@@ -98,6 +99,7 @@ namespace solucaoNiteltaga.Persistencia
         //update
         public bool Update(Pedido pedido)
         {
+
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
             string sql = "UPDATE tbl_pedido SET ped_dataPedido=?dataPedido, ped_dataEntrega=?dataEntrega ped_valorTotal=?valorTotal, ped_observacao=?observacao WHERE ped_id=?codigo";
@@ -117,12 +119,14 @@ namespace solucaoNiteltaga.Persistencia
         public bool Updatee(int pedido)
 
         {
+            DateTime date = DateTime.Now;
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "UPDATE tbl_pedido SET ped_entregue= '1' WHERE ped_id=?codigo";
+            string sql = "UPDATE tbl_pedido SET ped_dataEntrega =?dataEntrega, ped_entregue= '1'WHERE ped_id=?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?codigo", pedido));
+            objCommand.Parameters.Add(Mapped.Parameter("?dataEntrega", date));
             objCommand.ExecuteNonQuery();
             objConexao.Close();
             objCommand.Dispose();
@@ -136,7 +140,7 @@ namespace solucaoNiteltaga.Persistencia
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand; //INSERT INTO `nieltagabd`.`tbl_pedido` (`ped_dataPedido`, `ped_dataEntrega`, `ped_valorTotal`, `usu_id`) VALUES ('20191106', '20191106', '80', '1');
 
-
+            
             string sql = "INSERT INTO tbl_pedido (ped_dataPedido, ped_dataEntrega, ped_valorTotal, ped_observacao,usu_id) VALUES (?dataPedido, ?dataEntrega, ?valorTotal,?observacao,'1')";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);

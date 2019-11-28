@@ -7,6 +7,19 @@
     <link href="../Content/style.css" rel="stylesheet" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/AdminLTE.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/DataTables/dataTables.buttons.min.js"></script>
+    <script src="../Scripts/DataTables/buttons.flash.min.js"></script>
+    <script src="../Scripts/DataTables/buttons.html5.min.js"></script>
+    <script src="../Scripts/DataTables/buttons.print.min.js"></script>
+    <script src="../Scripts/DataTables/buttons.colVis.min.js"></script>
+    <script src="../Scripts/jszip.min.js"></script>
+    <script src="../Scripts/pdfmake.min.js"></script>
+    <script src="../Scripts/vfs_fonts.js"></script>
+
+    <script src="../Scripts/projeto.js"></script>
+    <script src="../Scripts/manipulacao.js"></script>
     <script src="../Scripts/JavaScript.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="TituloPagina" Runat="Server">
@@ -38,22 +51,25 @@
           <asp:Label ID="pedido" runat="server"  Text="PEDIDO N:"></asp:Label>
 
       </div>
-              <div class="col-6 text-left">
+              <div class="col- text-left">
               
       <asp:TextBox ID="txtPedido" Enabled="false" Font-Size="Small" runat="server" Width="93px"></asp:TextBox><br />
           </div>
           </div>
           <div class="row">
-              <div class="col-4 text-right">
+              <div class="col-3 text-right text-right">
+                  <asp:Label ID="slItem" runat="server" Text="Cadápio:"></asp:Label>
+              </div>
+              <div class="col-3 text-left">
                   <asp:DropDownList ID="ddlCardapio" runat="server">
       </asp:DropDownList>
               </div>
-              <div class="col text-center">
+              <div class="col-3 text-right">
               
       <asp:Label ID="quantidade" runat="server" Text="Quantidade:"></asp:Label>
 
           </div>
-              <div class="col-4 text-left">
+              <div class="col-3 text-left">
               
       <asp:TextBox ID="txtQuantidade" runat="server"></asp:TextBox>
           </div>
@@ -79,13 +95,13 @@
       </div>
       <div class="col bg-white alert-dark shadow"> 
           <div  id="Grid" role="grid" aria-dropeffect="move">
-          <asp:GridView ID="GridView1" OnRowCommand="GridView1_RowCommand" GridLines="Horizontal" BorderStyle="None" AutoGenerateColumns="False" runat="server" CssClass="col-12 bg-transparent" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black">
+          <asp:GridView ID="GridView1" OnRowCommand="GridView1_RowCommand" GridLines="Horizontal" BorderStyle="None" AutoGenerateColumns="False" runat="server" CssClass="table table-hover table-success tabela" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black" >
               <Columns>
 
                   <asp:BoundField DataField="CARDAPIO" HeaderText="CARDAPIO" ItemStyle-CssClass="shadow font-weight-bold"/>
                   <asp:BoundField DataField="QTD" HeaderText="QTD" />
-                  <asp:BoundField DataField="car_valorunitario" HeaderText="VALOR UNITÁRIO" />
-                  <asp:BoundField DataField="VALOR_TOTAL" HeaderText="VALOR TOTAL"  />
+                  <asp:BoundField DataField="car_valorunitario" HeaderText="VALOR UNITÁRIO" DataFormatString="{0:c2}" />
+                  <asp:BoundField DataField="VALOR_TOTAL" HtmlEncodeFormatString="true" HeaderText="VALOR TOTAL" DataFormatString="{0:c2}" />
                   <asp:TemplateField>
  <ItemTemplate>
  <asp:LinkButton ID="lbDeletar" runat="server" CommandName="Deletar" CssClass="btn btn-danger"  OnClientClick="return confirm ('DESEJA EXCLUIR ESTE ITEM?')"
@@ -102,6 +118,9 @@ CommandArgument='<%# Bind("itp_id")%>'>Excluir</asp:LinkButton>
               <SortedDescendingCellStyle BackColor="#E5E5E5" />
               <SortedDescendingHeaderStyle BackColor="#242121" />
           </asp:GridView>
+              <asp:Label ID="lblTotal" runat="server" Text="Total: R$"></asp:Label>
+              <asp:Label ID="txtTotal" runat="server" Text="Total:"  ></asp:Label>
+              <br />
           <asp:Button ID="back" runat="server" Text="FINALIZAR" CssClass="btn btn-bitbucket" PostBackUrl="~/Paginas/PedidosRealizados.aspx"/>
 
           
@@ -119,7 +138,7 @@ CommandArgument='<%# Bind("itp_id")%>'>Excluir</asp:LinkButton>
   <div class="card-body">
 
             
-    
+    <script src="../Scripts/projeto.js"></script>
   </div>
             
             

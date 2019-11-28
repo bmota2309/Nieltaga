@@ -26,7 +26,9 @@ public partial class Paginas_ItensPedido : System.Web.UI.Page
         ddlCardapio.DataBind();
         ddlCardapio.Items.Insert(0, "Selecione");
 
-              
+        ItemPedidoBD bds = new ItemPedidoBD();
+        double upTotal = bds.updateTotal(Convert.ToInt32(Session["ID"]));
+
     }
     private void CarregaItensPedido()
     {
@@ -34,6 +36,9 @@ public partial class Paginas_ItensPedido : System.Web.UI.Page
         DataSet ds = bd.SelectIt(Convert.ToInt32(Session["ID"]));
         GridView1.DataSource = ds.Tables[0].DefaultView;
         GridView1.DataBind();
+
+        double total = bd.totalizaItens(Convert.ToInt32(Session["ID"]));
+        txtTotal.Text =( String.Format("{0:c1}", Convert.ToString(total)));
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -44,6 +49,8 @@ public partial class Paginas_ItensPedido : System.Web.UI.Page
                 PedidoBD bd = new PedidoBD();
                 Pedido ped = bd.Select(Convert.ToInt32(Session["ID"]));
                 CarregaItensPedido();
+            
+               //totaliza itens
 
         }
     }
@@ -85,6 +92,8 @@ public partial class Paginas_ItensPedido : System.Web.UI.Page
 
         if (bd.Insert(item))
         {
+            ItemPedidoBD.BaixarItem(ItemPedidoBD.Count());
+
             lblMensagem.Text = "<div class='alert alert-success text-center'>Item inserido com sucesso!</div>";
 
             Carrega();
@@ -118,7 +127,10 @@ public partial class Paginas_ItensPedido : System.Web.UI.Page
                 break;
             case "Finalizar":
                 cod = Convert.ToInt32(e.CommandArgument);
+                //TIRA ITENS DO ESTOQUE
+
                 Response.Redirect("PedidosRealizados.aspx");
+                
 
                 break;
             default:

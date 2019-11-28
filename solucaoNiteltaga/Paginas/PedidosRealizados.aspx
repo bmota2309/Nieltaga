@@ -52,14 +52,14 @@
                         <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
-                <asp:GridView  ID="GridView1" AutoGenerateColumns="false" CssClass="col-12 shadow" runat="server" OnRowCommand="GridView1_RowCommand" PageSize="1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Dotted" BorderWidth="2px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                <asp:GridView  ID="GridView1"  AutoGenerateColumns="false" CssClass="shadow table table-hover table-warning tabela" runat="server" OnRowCommand="GridView1_RowCommand" PageSize="1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Dotted" BorderWidth="2px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
               
                   <Columns>
                <asp:BoundField DataField="PEDIDO" HeaderText="PEDIDO" />
                <asp:BoundField DataField="DT.PEDIDO" HeaderText="DATA PEDIDO" DataFormatString="{0:d}" />
-               <asp:BoundField DataField="DT.ENTREGA" HeaderText="DATA ENTREGA" DataFormatString="{0:d}" />
+               <asp:BoundField DataField="DT.ENTREGA" HeaderText="ENTREGA PREVISTA" DataFormatString="{0:D}" />
                <asp:BoundField DataField="OBSERVAÇÃO" HeaderText="OBSERVAÇÃO"/>
-               <asp:BoundField DataField="R$" HeaderText="R$"/>
+               <asp:BoundField DataField="R$" HeaderText="R$" DataFormatString="{0:c2}"/>
                   </Columns>
                      
             <Columns>
@@ -68,7 +68,7 @@
  <asp:TemplateField ControlStyle-CssClass="btn btn-info">
  <ItemTemplate>
  <asp:LinkButton ID="lbItem" runat="server" CommandName="Item"
-     CommandArgument='<%# Bind("PEDIDO")%>'>+Adicionar Itens</asp:LinkButton>
+     CommandArgument='<%# Bind("PEDIDO")%>'>+Itens</asp:LinkButton>
  </ItemTemplate>
 <ControlStyle CssClass="btn btn-info"></ControlStyle>
  </asp:TemplateField>

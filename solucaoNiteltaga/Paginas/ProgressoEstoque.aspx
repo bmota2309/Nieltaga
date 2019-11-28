@@ -10,7 +10,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="TituloPagina" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Contentbody" Runat="Server">
-    <div class="card-body">
+    <%--<div class="card-body">
                 <table class="table table-bordered">
                   <thead>                  
                     <tr>
@@ -63,6 +63,27 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div>--%>
+    
+
+    <asp:GridView ID="GridView1" CssClass="table table-hover table-success tabela" HorizontalAlign="Center" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+        <Columns>
+
+            <asp:BoundField DataField="ing_nome"  HeaderText="INGREDIENTE"/>
+            <asp:BoundField DataField="ing_marca" HeaderText="MARCA" DataFormatString="" />
+            <asp:BoundField DataField="ing_quantidade" ItemStyle-CssClass ="text-center font-weight-bold" ControlStyle-Font-Size="Large" HeaderText="QTD ESTOQUE (ml ou mg)" DataFormatString="{0:0ml/mg}"  >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="porcentagem" HeaderText="%" ItemStyle-CssClass ="progress-bar progress-bar-striped progress-bar-animated" DataFormatString="{0:P1}" />
+        </Columns>
+        <FooterStyle BackColor="#CCCC99" ForeColor="Black" HorizontalAlign="Center" />
+        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" />
+        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White"  HorizontalAlign="Center"/>
+        <SortedAscendingCellStyle BackColor="#F7F7F7" HorizontalAlign="Center" />
+        <SortedAscendingHeaderStyle BackColor="#4B4B4B"  HorizontalAlign="Center"/>
+        <SortedDescendingCellStyle BackColor="#E5E5E5" HorizontalAlign="Center"/>
+        <SortedDescendingHeaderStyle BackColor="#242121" HorizontalAlign="Center" />
+    </asp:GridView>
 </asp:Content>
 

@@ -118,12 +118,26 @@ namespace CrudIngrediente.Persistencia
         }
         //update
         //delete
-        //construtor
-        public IngredienteBD()
+
+
+        //BAIXA ESTOQUE
+        //update
+        public static bool BaixaEstoque(int id, int qtdBaixa)
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            System.Data.IDbConnection objConexao;
+            System.Data.IDbCommand objCommand;
+            string sql = "UPDATE tbl_ingredientes SET ing_quantidade = ing_quantidade - ?quantidade WHERE ing_id = ?codigo";
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConexao);
+
+            objCommand.Parameters.Add(Mapped.Parameter("?codigo", id));
+            objCommand.Parameters.Add(Mapped.Parameter("?quantidade", qtdBaixa));
+  
+            objCommand.ExecuteNonQuery();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return true;
         }
     }
 }

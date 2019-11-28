@@ -17,7 +17,7 @@ public class ItemPedido
     public string CardapioNome { get; set; }
     public int CardapioID { get; set; }
     public int PedidoID { get; set; }
-
+    public double upTotal { get; set; }
     public ItemPedido()
     {
         //

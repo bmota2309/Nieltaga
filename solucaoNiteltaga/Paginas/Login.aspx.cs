@@ -53,7 +53,7 @@ public partial class Pages_Login : System.Web.UI.Page
         pessoa = bd.Autentica(email, senha);
         if (!UsuarioEncontrado(pessoa))
         {
-            lblMensagem.Text = "<a class='alert alert-warning' >Nome não cadastrado</a>";
+            lblMensagem.Text = "<a class='alert alert-danger' >Usuário ou senha incorreto(s)</a>";
             txtNome.Focus();
             return;
         }
