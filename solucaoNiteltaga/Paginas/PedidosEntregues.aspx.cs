@@ -17,9 +17,7 @@ public partial class Paginas_PedidosEntregues : System.Web.UI.Page
         DataSet ds = bd.SelectAll();
 
     }
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-    }
+    
         private void CarregaGrid(string termo)
     {
         PedidoBD bd = new PedidoBD();
@@ -63,6 +61,23 @@ public partial class Paginas_PedidosEntregues : System.Web.UI.Page
         }
     }
 
-    
-    
+
+
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int codigo = 0;
+        switch (e.CommandName)
+        {
+            case "lucro":
+                codigo = Convert.ToInt32(e.CommandArgument);
+                Session["ID"] = codigo;
+                Response.Redirect("Lucratividade.aspx");
+
+                break;
+            default:
+                break;
+
+        }
+    }
 }

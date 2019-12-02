@@ -27,7 +27,21 @@ public class CardapioBD
         return ds;
     }
 
-
+    public DataSet ListaEmbalagem()
+    {
+        DataSet ds = new DataSet();
+        System.Data.IDbConnection objConexao;
+        System.Data.IDbCommand objCommand;
+        System.Data.IDataAdapter objDataAdapter;
+        objConexao = Mapped.Connection();
+        objCommand = Mapped.Command("SELECT * FROM tbl_embalagem", objConexao);
+        objDataAdapter = Mapped.Adapter(objCommand);
+        objDataAdapter.Fill(ds);
+        objConexao.Close();
+        objCommand.Dispose();
+        objConexao.Dispose();
+        return ds;
+    }
 
     public CardapioBD()
     {

@@ -26,10 +26,5 @@ public class ProgressoEstoqueBD
         objConexao.Dispose();
         return ds;
     }
-    public ProgressoEstoqueBD()
-    {
-        //
-        // TODO: Adicionar lógica do construtor aqui
-        //
-    }
+    
 }

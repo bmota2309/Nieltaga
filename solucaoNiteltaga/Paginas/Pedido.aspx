@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/MasterPage.master" AutoEventWireup="true" CodeFile="Pedido.aspx.cs" Inherits="Paginas_Pedido" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-     Home
+     NIELTAGA - PEDIDO
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
     <link href="../Content/style.css" rel="stylesheet" />
@@ -47,7 +47,7 @@
             <asp:Label ID="observacao" CssClass="navbar bg-light font-weight-bold" runat="server" Text="observacao">OBSERVAÇÃO:</asp:Label>
             <asp:TextBox ID="txtObservacao" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
             <asp:Label ID="valorTotal" CssClass="navbar bg-light font-weight-bold" runat="server" Text="valorTotal">VALOR TOTAL:</asp:Label>
-            <asp:TextBox ID="txtValorTotal" CssClass="form-control" runat="server" Rows="0" ValidateRequestMode="Enabled" ViewStateMode="Enabled" BorderStyle="Solid" Font-Bold="True" SkinID="R$"></asp:TextBox>
+            <asp:TextBox ID="txtValorTotal" CssClass="form-control" runat="server" Rows="0" ValidateRequestMode="Enabled" ViewStateMode="Enabled" BorderStyle="Solid" Font-Bold="True" SkinID="R$" Text="0"></asp:TextBox>
       <br />
       <asp:Button ID="btnSalvar" CssClass="btn btn-primary" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
            

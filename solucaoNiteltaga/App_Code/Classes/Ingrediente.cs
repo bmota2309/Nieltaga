@@ -13,7 +13,7 @@ namespace CrudIngrediente.Classes
         public string Nome { get; set; }
         public string Marca { get; set; }
         public int Quantidade { get; set; }
-        public double ValorUnitario { get; set; }
+        public decimal ValorUnitario { get; set; }
         //construtor
         public Ingrediente()
         {

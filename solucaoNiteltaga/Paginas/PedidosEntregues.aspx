@@ -16,39 +16,49 @@
             </div>
     <br />
     <div class="navbar-light bg-light">
-    <a id="barra">PEDIDOS ENTREGUES</a>
+    <a id="barra"> LISTA DE PEDIDOS</a>
         </div>
     <div class="row form-group"  id="base">
         <div class="card text-center col-12">
-  <div class="card-header">
+  <div class="card-header ">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item col-sm-4">
         <a class="nav-link" href="Pedido.aspx">FAZER PEDIDO</a>
 
       </li>
       <li class="nav-item col-sm-4">
-        <a class="nav-link  " href="PedidosRealizados.aspx"   >PEDIDOS REALIZADOS</a>
+        <a class="nav-link " href="PedidosRealizados.aspx">PEDIDOS REALIZADOS</a>
       </li>
       <li class="nav-item col-sm-4">
-        <a class="nav-link active" href="PedidosEntregues.aspx">PEDIDOS ENTREGUES</a>
+        <a class="nav-link active " href="PedidosEntregues.aspx">PEDIDOS ENTREGUES</a>
+
       </li>
-        <br />
-        <br />
+    </ul>
+  </div>
         <!-- CARD -->
         
         <div class="table-responsive">
-        <asp:GridView ID="GridView1" CssClass="shadow table table-hover table-warning tabela" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="1011px">
+        <asp:GridView ID="GridView1" OnRowCommand="GridView1_RowCommand" CssClass="shadow table table-hover table-warning tabela" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="1011px" >
                 <Columns>
                     <asp:BoundField DataField="ped_id" HeaderText="PEDIDO" ControlStyle-CssClass="card-header">
 <ControlStyle CssClass="card-header"></ControlStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="ped_valorTotal" HeaderText="VALOR" ControlStyle-CssClass="card-title" DataFormatString="{0:c2}" >
+                    <asp:BoundField DataField="ped_valorTotal" HeaderText="VALOR" ControlStyle-CssClass="card-title" DataFormatString="R$ {0:c2}" >
 <ControlStyle CssClass="card-title"></ControlStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="ped_dataEntrega" HeaderText="DT.ENTREGA" ControlStyle-CssClass="card-text" DataFormatString="{0:D}" >
 <ControlStyle CssClass="card-text"></ControlStyle>
                     </asp:BoundField>
+                         <asp:TemplateField ControlStyle-CssClass="btn btn-info">
+ <ItemTemplate>
+ <asp:LinkButton ID="lucro" runat="server" CommandName="lucro"
+     CommandArgument='<%# Bind("ped_id")%>'>LUCRO</asp:LinkButton>
+ </ItemTemplate>
+<ControlStyle CssClass="btn btn-info"></ControlStyle>
+ </asp:TemplateField>
+
                 </Columns>
+            
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
@@ -61,5 +71,5 @@
             <asp:Label ID="lblMensagem" runat="server" Text=""></asp:Label>
             </div>
         </div>
-
+        </div>
 </asp:Content>

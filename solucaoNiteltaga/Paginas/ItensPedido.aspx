@@ -100,8 +100,8 @@
 
                   <asp:BoundField DataField="CARDAPIO" HeaderText="CARDAPIO" ItemStyle-CssClass="shadow font-weight-bold"/>
                   <asp:BoundField DataField="QTD" HeaderText="QTD" />
-                  <asp:BoundField DataField="car_valorunitario" HeaderText="VALOR UNITÁRIO" DataFormatString="{0:c2}" />
-                  <asp:BoundField DataField="VALOR_TOTAL" HtmlEncodeFormatString="true" HeaderText="VALOR TOTAL" DataFormatString="{0:c2}" />
+                  <asp:BoundField DataField="car_valorunitario" HeaderText="VALOR UNITÁRIO" DataFormatString="R$ {0:c2}" />
+                  <asp:BoundField DataField="VALOR_TOTAL" HtmlEncodeFormatString="true" HeaderText="VALOR TOTAL" DataFormatString="R$ {0:c2}" />
                   <asp:TemplateField>
  <ItemTemplate>
  <asp:LinkButton ID="lbDeletar" runat="server" CommandName="Deletar" CssClass="btn btn-danger"  OnClientClick="return confirm ('DESEJA EXCLUIR ESTE ITEM?')"
@@ -118,8 +118,8 @@ CommandArgument='<%# Bind("itp_id")%>'>Excluir</asp:LinkButton>
               <SortedDescendingCellStyle BackColor="#E5E5E5" />
               <SortedDescendingHeaderStyle BackColor="#242121" />
           </asp:GridView>
-              <asp:Label ID="lblTotal" runat="server" Text="Total: R$"></asp:Label>
-              <asp:Label ID="txtTotal" runat="server" Text="Total:"  ></asp:Label>
+              <asp:Label ID="lblTotal" runat="server" Text="Total:"></asp:Label>
+              <asp:Label ID="txtTotal" runat="server" Text="" CssClass="callout-danger"  ></asp:Label>
               <br />
           <asp:Button ID="back" runat="server" Text="FINALIZAR" CssClass="btn btn-bitbucket" PostBackUrl="~/Paginas/PedidosRealizados.aspx"/>
 

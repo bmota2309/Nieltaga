@@ -59,7 +59,7 @@
                <asp:BoundField DataField="DT.PEDIDO" HeaderText="DATA PEDIDO" DataFormatString="{0:d}" />
                <asp:BoundField DataField="DT.ENTREGA" HeaderText="ENTREGA PREVISTA" DataFormatString="{0:D}" />
                <asp:BoundField DataField="OBSERVAÇÃO" HeaderText="OBSERVAÇÃO"/>
-               <asp:BoundField DataField="R$" HeaderText="R$" DataFormatString="{0:c2}"/>
+               <asp:BoundField DataField="R$" HeaderText="R$" DataFormatString="R$ {0:c2}"/>
                   </Columns>
                      
             <Columns>

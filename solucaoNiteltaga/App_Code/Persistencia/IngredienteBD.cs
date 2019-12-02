@@ -70,7 +70,7 @@ namespace CrudIngrediente.Persistencia
                 obj.Nome = Convert.ToString(objDataReader["ing_nome"]);
                 obj.Marca = Convert.ToString(objDataReader["ing_marca"]);
                 obj.Quantidade = Convert.ToInt16(objDataReader["ing_quantidade"]);
-                obj.ValorUnitario = Convert.ToDouble(objDataReader["ing_valorUnitario"]);
+                obj.ValorUnitario = Convert.ToDecimal(objDataReader["ing_valorUnitario"]);
 
             }
             objDataReader.Close();

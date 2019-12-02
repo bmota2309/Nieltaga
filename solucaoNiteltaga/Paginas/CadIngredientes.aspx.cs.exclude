@@ -20,7 +20,7 @@ public partial class Paginas_Cadastrar : System.Web.UI.Page
             ingrediente.Nome = txtNome.Text;
             ingrediente.Marca = txtMarca.Text;
             ingrediente.Quantidade = Convert.ToInt16(txtQuantidade.Text);
-            ingrediente.ValorUnitario = Convert.ToDouble(txtValorUnitario.Text);
+            ingrediente.ValorUnitario = Convert.ToDecimal(txtValorUnitario.Text);
         }
     }
 
@@ -30,7 +30,7 @@ public partial class Paginas_Cadastrar : System.Web.UI.Page
         ingrediente.Nome = txtNome.Text;
         ingrediente.Marca = txtMarca.Text;
         ingrediente.Quantidade = Convert.ToInt16(txtQuantidade.Text);
-        ingrediente.ValorUnitario = Convert.ToDouble(txtValorUnitario.Text);
+        ingrediente.ValorUnitario = Convert.ToDecimal(txtValorUnitario.Text);
         IngredienteBD bd = new IngredienteBD();
         if (bd.Insert(ingrediente))
         {

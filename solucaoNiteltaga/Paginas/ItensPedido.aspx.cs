@@ -38,7 +38,7 @@ public partial class Paginas_ItensPedido : System.Web.UI.Page
         GridView1.DataBind();
 
         double total = bd.totalizaItens(Convert.ToInt32(Session["ID"]));
-        txtTotal.Text =( String.Format("{0:c1}", Convert.ToString(total)));
+        txtTotal.Text =( String.Format("R$ {0:c2}", Convert.ToString(total)));
     }
 
     protected void Page_Load(object sender, EventArgs e)
