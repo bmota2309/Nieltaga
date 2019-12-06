@@ -18,16 +18,15 @@ namespace solucaoNiteltaga.Persistencia
         {
             System.Data.IDbConnection objConexao;
             System.Data.IDbCommand objCommand;
-            string sql = "INSERT INTO tbl_cardapio(car_id, car_nome, car_valorUnitario, emb_id, rec_id) VALUES (?id, ?nome, ?valorUnitario, ?embalagemId, ?receitaId)";
+            string sql = "INSERT INTO tbl_cardapio(car_id, car_nome, car_valorUnitario, emb_id, rec_id) VALUES (0, ?nome, ?valorUnitario, ?embalagemId, ?receitaId)";
 
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
 
-            objCommand.Parameters.Add(Mapped.Parameter("?id", cadastrar.Id));
             objCommand.Parameters.Add(Mapped.Parameter("?nome", cadastrar.Nome));
             objCommand.Parameters.Add(Mapped.Parameter("?valorUnitario", cadastrar.valorUnitario));
-            objCommand.Parameters.Add(Mapped.Parameter("?embalagemId", cadastrar.EmbalagemId));
-            objCommand.Parameters.Add(Mapped.Parameter("?receitaId", cadastrar.ReceitaId));
+            objCommand.Parameters.Add(Mapped.Parameter("?embalagemId", cadastrar.Embalagem));
+            objCommand.Parameters.Add(Mapped.Parameter("?receitaId", cadastrar.Receita));
 
             objCommand.ExecuteNonQuery();
             objConexao.Close();
@@ -76,8 +75,8 @@ namespace solucaoNiteltaga.Persistencia
                 obj.Id = Convert.ToInt32(objDataReader["car_id"]);
                 obj.Nome = Convert.ToString(objDataReader["car_nome"]);
                 obj.valorUnitario = Convert.ToInt32(objDataReader["car_valorUnitario"]);
-                obj.EmbalagemId = Convert.ToInt32(objDataReader["emb_id"]);
-                obj.ReceitaId = Convert.ToInt32(objDataReader["rec_id"]);
+                obj.Embalagem = Convert.ToInt32(objDataReader["emb_id"]);
+                obj.Receita = Convert.ToInt32(objDataReader["rec_id"]);
 
             }
             objDataReader.Close();
@@ -102,8 +101,8 @@ namespace solucaoNiteltaga.Persistencia
             objCommand.Parameters.Add(Mapped.Parameter("?id", cadastrar.Id));
             objCommand.Parameters.Add(Mapped.Parameter("?nome", cadastrar.Nome));
             objCommand.Parameters.Add(Mapped.Parameter("?valorUnitario", cadastrar.valorUnitario));
-            objCommand.Parameters.Add(Mapped.Parameter("?embalagemId", cadastrar.EmbalagemId));
-            objCommand.Parameters.Add(Mapped.Parameter("?receitaId", cadastrar.ReceitaId));
+            objCommand.Parameters.Add(Mapped.Parameter("?embalagemId", cadastrar.Embalagem));
+            objCommand.Parameters.Add(Mapped.Parameter("?receitaId", cadastrar.Receita));
 
             objCommand.ExecuteNonQuery();
             objConexao.Close();
@@ -122,7 +121,7 @@ namespace solucaoNiteltaga.Persistencia
             System.Data.IDataAdapter objDataAdapter;
 
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM tbl_receita", objConexao);
+            objCommand = Mapped.Command("SELECT * FROM tbl_receita group by rec_id", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
 

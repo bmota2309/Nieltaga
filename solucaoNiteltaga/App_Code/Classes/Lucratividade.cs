@@ -11,7 +11,7 @@ using System.Web;
 public class Lucratividade
 {
     public int pedidoID { get; set; }
-    public int selecionaID { get; set; }
+    public string selecionaID { get; set; }
     
     
 

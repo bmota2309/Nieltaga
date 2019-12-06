@@ -14,8 +14,8 @@ namespace solucaoNiteltaga.Classes
 public class Cadastrar
 {
         public int Id {get; set;}
-        public int CardapioId {get; set;}
-        public int EmbalagemId {get; set;}
+        public int Embalagem {get; set;}
+        public int Receita {get; set;}
         public double ReceitaId {get; set;}
         public string Nome {get; set;}
         public decimal valorUnitario { get; set;}

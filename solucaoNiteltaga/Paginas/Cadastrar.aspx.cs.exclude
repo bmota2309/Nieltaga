@@ -69,4 +69,13 @@ public partial class Paginas_Cadastrar : System.Web.UI.Page
             lblMensagem.Text = "Erro ao salvar";
         }
     }
+    protected void btnSair_Click(object sender, EventArgs e)
+    {
+        {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
+            Response.Redirect("Login.aspx");
+        }
+    }
 }

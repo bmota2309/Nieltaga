@@ -14,9 +14,9 @@ public partial class Paginas_Ingrediente : System.Web.UI.Page
 {
     private void Carrega()
     {
+        
         IngredientesBD bd = new IngredientesBD();
         DataSet ds = bd.SelectAll();
-
         GridView1.DataSource = ds.Tables[0].DefaultView;
         GridView1.DataBind();
 
